@@ -1,0 +1,338 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Josefin Sans", sans-serif;
+}
+body{
+    overflow-x: hidden;
+    width: 100%;
+    height: 100vh;
+}
+.header{
+    display: flex;
+    justify-content: space-around;
+}
+.logo{
+    font-size: 25px;
+    font-weight: 700;
+    margin-top: 20px;
+    cursor: pointer;
+    opacity: 0;
+    animation: slideright 1s ease forwards;
+}
+.active{
+    color: #1743e3;
+}
+.active::before{
+    color: #1743e3;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #1743e3;
+    bottom: -3px;
+    border-radius: 10px;
+}
+.list{
+    display: flex;
+    gap: 40px;
+    margin-top: 25px;
+    list-style: none;
+    font-size: 17px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+nav a{
+    color: black;
+    text-decoration: none;
+    opacity: 0;
+    animation: slidetop 1s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+    /* position: relative; */
+}
+nav a::before{
+    position: absolute;
+    content: "";
+    width: 0%;
+    height: 3px;
+    background-color: #1743e3;
+    bottom: -3px;
+    border-radius: 10px;
+    transition:.4s;
+}
+nav a:hover:before{
+    width: 100%;
+}
+a{
+    transition: 0.4s;
+}
+a:hover{
+    color: #1743e3;
+}
+.soc{
+    margin-top: 18px;
+}
+.soc a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border: 1.4px solid transparent;
+    border-radius: 1.5px;
+    transform: rotate(45deg);
+    font-size: 25px;
+    margin-left: 20px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    transition: .5s;
+    z-index: 2;
+    opacity: 0;
+    animation: slideleft 1s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+}
+.soc a:hover{
+    border-color: rgb(255, 255, 255);
+}
+.soc a i{
+    transform: rotate(-45deg);
+}
+
+.big-box{
+    z-index: -1;
+    width: 700px;
+    height: 650px;
+    background: #1743e3;
+    position: absolute;
+    top: -25%;
+    right: -25%;
+    transform: rotate(45deg);
+    z-index: -2;
+    opacity: 0;
+    animation: slideleft 1s ease forwards;
+}
+.small-box{
+    height: 400px;
+    width: 400px;
+    background-color: white;
+    border: 20px solid #1743e3;
+    transform: rotate(45deg);
+    position: absolute;
+    right: 20px;
+    top: 170px;
+    box-shadow: -15px 15px 15px rgba(0, 0, 0, .2);
+    z-index: -1;
+    opacity: 0;
+    animation: slidein 1.4s ease forwards;
+    animation-delay: 1.2s;
+}
+.car{
+    position: absolute;
+    right: 20px;
+    top: 200px;
+    width: fit-content;
+    height: 300px;
+    z-index: 2;
+    opacity: 0;
+    animation: slideout 1s ease forwards;
+    animation-delay: 1.6s;
+}
+.content{
+    width: 500px;
+    margin-left: 100px;
+    margin-top: 200px;
+    margin-bottom: 30px;
+}
+h1{
+    margin-bottom: 16px;
+    font-size: 37px;
+    opacity: 0;
+    animation: slidedown 1s ease forwards;
+    animation-delay: 1s;
+}
+h3{
+    margin-bottom: 20px;
+    color: #1743e3;
+    font-size: 30px;
+    opacity: 0;
+    animation: slideright 1s ease forwards;
+    animation-delay: 1.2s;
+}
+p{
+    font-weight: 400;
+    opacity: 0;
+    animation: slideleftt 1.4s ease forwards;
+    animation-delay: 1.2s;
+    margin-bottom: 35px;
+}
+.btn{
+    background-color: #1743e3;
+    width: fit-content;
+    border-radius: 8px;
+    padding: 12px 30px;
+    border: 2px solid transparent;
+    transition: .4s;
+    color: white;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-weight: 700;
+}
+.bbt{
+    opacity: 0;
+    animation: slide 1s ease forwards;
+    animation-delay:1.5s;
+}
+.btn:hover{
+    border: 2px solid #1743e3;
+    background-color: transparent;
+    color: #1743e3;
+}
+@keyframes slideright{
+    0%{
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes slidetop{
+    0%{
+        transform: translatey(100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translatey(0);
+        opacity: 1;
+    }
+}
+@keyframes slideleft{
+    0%{
+        transform: translateX(150px) rotate(45deg);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0) rotate(45deg);
+        opacity: 1;
+    }
+}
+@keyframes slidein{
+    0%{
+        transform: scale(1.3) rotate(45deg);
+        opacity: 0;
+    }
+    100%{
+        transform: scale(1) rotate(45deg);
+        opacity: 1;
+    }
+}
+@keyframes slideout{
+    0%{
+        transform: translateX(250px) scale(.2) ;
+        opacity: 0;
+    }
+    100%{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+@keyframes slidedown{
+    0%{
+        transform: translatey(-100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translatey(0);
+        opacity: 1;
+    }
+}
+@keyframes slideleftt{
+    0%{
+        transform: translateX(100px) ;
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0) ;
+        opacity: 1;
+    }
+}
+@keyframes slide{
+    0%{
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@media screen and (max-width:600px){
+    .header{
+        flex-direction: column;
+        align-items: center;
+    }
+    .logo{
+        color: #dad9d9;
+    }
+    .list{
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+    .active{
+        color: #dad9d9;
+    }
+    .active::before{
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background-color: #dad9d9;
+        bottom: -3px;
+        border-radius: 10px;
+    }
+    nav a::before{
+        position: absolute;
+        content: "";
+        width: 0%;
+        height: 3px;
+        background-color: #dad9d9;
+        bottom: -3px;
+        border-radius: 10px;
+        transition:.4s;
+    }
+    nav a:hover:before{
+        width: 100%;
+    }
+    a:hover{
+        color: #dad9d9;
+    }
+    .small-box{
+        top: 300px;
+        right: 10px;
+    }
+    .big-box{
+        height: 490px;
+    }
+    .car{
+        top: 400px;
+        right: 10px;
+        height: 200px;
+    }
+    .content{
+        margin-top: 670px;
+        margin-left: 30px;
+        width: fit-content;
+    }
+    h1{
+        font-size: 30px;
+    }
+    h3{
+        font-size: 20px;
+    }
+    p{
+        font-size: 13px;
+    }
+}
